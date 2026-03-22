@@ -1,0 +1,42 @@
+<?php
+
+function usernameOrEmailExist($username)
+{
+    global $db;
+    $query = $db->prepare('SELECT * FROM tbl_users WHERE username = ? OR email = ?');
+    $query->bind_param('ss', $username, $username);
+    $query->execute();
+    $result = $query->get_result();
+    if ($result->num_rows) {
+        return true;
+    }
+    return false;
+
+}
+function registerUser($name, $username, $passwd)
+{
+    global $db;
+    $query = $db->prepare('INSERT INTO tbl_users (name,username,passwd) VALUES (?,?,?)');
+    $query->bind_param('sss', $name, $username, $passwd);
+    $query->execute();
+
+    if ($query->affected_rows) {
+        return true;
+    }
+    return false;
+}
+
+function loginUser($username, $passwd)
+{
+    global $db;
+    $query = $db->prepare('SELECT * FROM tbl_users WHERE (username = ? OR email = ?) AND passwd = ?');
+    $query->bind_param('sss', $username, $username, $passwd);
+    $query->execute();
+    $result = $query->get_result();
+    if ($result->num_rows) {
+        return $result->fetch_object();
+        // return true;
+    }
+    return false;
+}
+?>
