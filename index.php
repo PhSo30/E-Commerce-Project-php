@@ -2,7 +2,7 @@
     include 'includes/header.php';
 
 $admin_pages = ['admin_dashboard'];
-$non_logged_pages = ['login', 'register'];
+$non_logged_pages = ['login', 'register', 'forgotten'];
 $main_pages = ['dashboard'];
 $logged_pages = ['profile', 'logout'];
 $array_pages = [...$non_logged_pages, ...$logged_pages, ...$admin_pages, ...$main_pages];
