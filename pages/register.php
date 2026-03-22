@@ -5,22 +5,22 @@
 <link rel="stylesheet" href="./pages/style/non-log-style.css">
 <form class="register">
     <div class="wrapper">
-        <form action="post">
+        <form action="./page=register" method="post">
             <h2>Register</h2>
             <div class="input-field">
-                <input type="text" required>
+                <input name="username" type="text" required>
                 <label>Enter your username</label>
             </div>
             <div class="input-field">
-                <input type="text" required>
+                <input name="email" type="text" required>
                 <label>Enter your email</label>
             </div>
             <div class="input-field">
-                <input type="password" required>
+                <input name="password" type="password" required>
                 <label>Enter your password</label>
             </div>
             <div class="input-field">
-                <input type="password" required>
+                <input name="confirm-password" type="password" required>
                 <label>Re-enter your password</label>
             </div>
             <button type="submit">Register</button>

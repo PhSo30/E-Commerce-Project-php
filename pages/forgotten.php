@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="./pages/style/non-log-style.css">
 <form class="forgotten">
     <div class="wrapper">
-        <form action="post">
+        <form action="./page=forgotten" method="post">
             <h2>Forgot Password</h2>
             <div class="input-field">
                 <input type="text" required>
