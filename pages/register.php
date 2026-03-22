@@ -1,11 +1,12 @@
 <?php
-
+$username = $email = $password = $confirmPassword = "";
+$usernameError = $emailError = $passwdError = $confirmPasswdError = "";
 
 ?>
 <link rel="stylesheet" href="./pages/style/non-log-style.css">
 <form class="register">
     <div class="wrapper">
-        <form action="./page=register" method="post">
+        <form action="./?page=register" method="post">
             <h2>Register</h2>
             <div class="input-field">
                 <input name="username" type="text" required>
