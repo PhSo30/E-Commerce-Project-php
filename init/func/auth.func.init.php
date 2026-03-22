@@ -24,11 +24,11 @@ function emailExist($email)
     }
     return false;
 }
-function registerUser($name, $username, $passwd)
+function registerUser( $username, $email, $passwd)
 {
     global $db;
-    $query = $db->prepare('INSERT INTO tbl_users (name,username,passwd) VALUES (?,?,?)');
-    $query->bind_param('sss', $name, $username, $passwd);
+    $query = $db->prepare('INSERT INTO tbl_users (username,email,passwd) VALUES (?,?,?)');
+    $query->bind_param('sss', $username, $email, $passwd);
     $query->execute();
 
     if ($query->affected_rows) {
