@@ -1,17 +1,28 @@
 <?php
 
-function usernameOrEmailExist($username)
+function usernameExist($username)
 {
     global $db;
-    $query = $db->prepare('SELECT * FROM tbl_users WHERE username = ? OR email = ?');
-    $query->bind_param('ss', $username, $username);
+    $query = $db->prepare('SELECT * FROM tbl_users WHERE username = ?');
+    $query->bind_param('s', $username);
     $query->execute();
     $result = $query->get_result();
     if ($result->num_rows) {
         return true;
     }
     return false;
-
+}
+function emailExist($email)
+{
+    global $db;
+    $query = $db->prepare('SELECT * FROM tbl_users WHERE email = ?');
+    $query->bind_param('s', $email);
+    $query->execute();
+    $result = $query->get_result();
+    if ($result->num_rows) {
+        return true;
+    }
+    return false;
 }
 function registerUser($name, $username, $passwd)
 {

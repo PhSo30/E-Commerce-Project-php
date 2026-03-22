@@ -4,7 +4,7 @@ $usernameError = $passwdError = "";
 if (isset($_POST['username'], $_POST['password'])) {
   $username = trim($_POST['username']);
   $password = trim($_POST['password']);
-  if (!usernameOrEmailExist($username)) {
+  if (!usernameExist($username) && !emailExist($username)) {
     $usernameError = 'No username or email match!';
     $username = '';
   }

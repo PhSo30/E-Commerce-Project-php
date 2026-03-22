@@ -20,8 +20,8 @@ if(!in_array($page, $non_logged_pages)){
 if(in_array($page, $array_pages)){
     include './pages/' . $page . '.php';
 } else{
-    // header('Location: ./?page=dashboard');
-    // exit();
+    header('Location: ./?page=dashboard');
+    exit();
 }
 
 
