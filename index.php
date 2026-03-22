@@ -1,5 +1,5 @@
 <?php
-
+    include 'includes/header.php';
 
 $admin_pages = ['admin_dashboard'];
 $non_logged_pages = ['login', 'register'];
@@ -9,8 +9,8 @@ $array_pages = [...$non_logged_pages, ...$logged_pages, ...$admin_pages, ...$mai
 
 $page = $_GET['page'];
 if(!in_array($page, $non_logged_pages)){
-    include 'includes/header.php';
-    include 'includes/novbar.php';
+
+    include 'includes/navbar.php';
 }
 if(in_array($page, $array_pages)){
     include './pages/' . $page . '.php';
